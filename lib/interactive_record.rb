@@ -6,7 +6,7 @@ class InteractiveRecord
     self.to_s.downcase.pluralize
   end
   def self.column_names
-    DB[:conn].results_as_hash=true 
+    DB[:conn].results_as_hash=true
     table_info=DB[:conn].execute("pragma table_info('#{table_name}')")
     column_names=[]
     table_info.each do |row|
@@ -17,6 +17,6 @@ class InteractiveRecord
   def initialize(options={})
     options.each do |property, value|
       self.send("#{property}=",value)
-    end 
-  end 
+    end
+  end
 end 
