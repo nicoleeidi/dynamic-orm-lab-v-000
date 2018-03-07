@@ -55,7 +55,8 @@ class InteractiveRecord
   {name: "Susan"}
   or {grade: 10}
   def self.find_by(attribute)
-    
+    column_name= attribute.keys
+    value= attribute.values
     DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{attribute.keys} ='#{attribute.values}'")
   end
 
